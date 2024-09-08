@@ -5,7 +5,7 @@ from flask import (Flask, request,
                    render_template, redirect, flash, abort, url_for)
 from wtforms.form import Form
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager, UserMixin, login_user, current_user, coo
+from flask_login import LoginManager, UserMixin, login_user, current_user
 
 app = Flask(__name__, template_folder='templates')
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
@@ -47,6 +47,12 @@ def login():
 
     return render_template('login.html')
 
+
+@app.route('/', methods=['GET'])
+def index():
+    if not current_user.is_authenticated:
+        return redirect(url_for('login'))
+    return 'SUCCESS!'
 
 @app.route('/index', methods=['GET'])
 def index():
