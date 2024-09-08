@@ -1,0 +1,9 @@
+[
+  {
+    "name": "X-JWT-Token",
+    "value": "TOKEN_VALUE",
+    "domain": "dnevnik2.petersburgedu.ru",
+    "path": "/",
+    "expires": null
+  }
+]
